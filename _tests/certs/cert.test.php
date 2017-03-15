@@ -3,7 +3,7 @@
 require_once __DIR__.'/../../_puff/sitewide.php';
 $Page['Type']  = 'Test';
 
-$Domain = 'this-is-not-a-real-domain-name.com';
+$Domain = 'ashrise.com';
 
 $raw_chain = Certificate_Get_Raw_Chain($Domain);
 
@@ -12,11 +12,19 @@ if (!$raw_chain) {
 } else {
 	foreach ($raw_chain['chain'] as $raw_key => $raw_value) {
 
+		#echo 'Full Data'.PHP_EOL;
 		$cert_parsed = Certificate_Parse($raw_value);
+		#var_dump($cert_parsed);
+		#echo PHP_EOL;
 
 		echo 'Common Name'.PHP_EOL;
 		$cert_cn = cert_cn($cert_parsed);
 		var_dump($cert_cn);
+		echo PHP_EOL;
+
+		echo 'Signature'.PHP_EOL;
+		$cert_sig = cert_sig($cert_parsed);
+		var_dump($cert_sig);
 		echo PHP_EOL;
 
 		echo 'Serial Number'.PHP_EOL;
