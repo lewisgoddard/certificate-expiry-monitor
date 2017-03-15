@@ -2,6 +2,7 @@
 - Add Login Page
 - Add Logout Button
 - Add "Add Domain" page
+- Add "Confirm Domain" page
 - Add "Test Domain" cron
 - Add Dashboard
 - Add "Remove Domain" button

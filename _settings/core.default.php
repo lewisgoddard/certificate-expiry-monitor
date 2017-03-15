@@ -3,16 +3,16 @@
 ////	Puff Core Settings
 //
 // The root URL of your site (with trailing slash)
-$Sitewide['Settings']['Site Root']                      = 'http://local.localtest.me/';
+$Sitewide['Settings']['Site Root']                      = 'http://certs.localtest.me/';
 // A title for your site.
-$Sitewide['Settings']['Site Title']                     = 'Puff';
+$Sitewide['Settings']['Site Title']                     = 'Certificate Checker';
 // Something much longer or much shorter.
-$Sitewide['Settings']['Alternative Site Title']         = 'Puff is Awesome';
+$Sitewide['Settings']['Alternative Site Title']         = '';
 // Stripping the .php from URLs requires server-side configuration.
 // Check it works before enabling it.
-$Sitewide['Settings']['Strip PHP from URLs']            = false;
+$Sitewide['Settings']['Strip PHP from URLs']            = true;
 // Stop the loading of asset from external domains.
-$Sitewide['Settings']['Content Security Policy Header'] = false;
+$Sitewide['Settings']['Content Security Policy Header'] = true;
 // Honor Do Not Track Headers
 $Sitewide['Settings']['Honor DNT Headers']              = true;
 // Change to your tracking id like 'UA-1234567-89' for tracking.
