@@ -1,6 +1,5 @@
 <?php
 
-
 function utf8encodeNestedArray($arr) {
 	// json_encode fails with binary data. utf-8 encode that first, some ca's like to encode images in their OID's (verisign, 1.3.6.1.5.5.7.1.12)...
 	$encoded_arr = array();
@@ -18,6 +17,7 @@ function startsWith($haystack, $needle) {
 		// search backwards starting from haystack length characters from the end
 		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
 }
+
 function endsWith($haystack, $needle) {
 		// search forward starting from end minus needle length characters
 		if(!empty($haystack)) {
