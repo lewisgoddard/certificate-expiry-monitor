@@ -20,6 +20,8 @@ function Certificates_Domain_Add_List($Connection, $Username, $Domain_List, $Val
 
 	$Errors = array();
 
+	// TODO Check Username Exists
+
 	$Domain_List = explode("\n", $Domain_List);
 	$Domain_List = array_unique($Domain_List);
 
@@ -36,41 +38,15 @@ function Certificates_Domain_Add_List($Connection, $Username, $Domain_List, $Val
 		$Resolved = Certificates_Domain_Resolve($Domain);
 		if ( !$Resolved['Success'] ) {
 			$Errors[] = $Resolved['Error'];
-		} else {
-			$IP = $Resolved['IP'];
 		}
+
+		Certificates_Domain_Add($Connection, $Username, $Domain, $ValidationKey);
 
 	}
 
-	// TODO Below here
-	if ( is_array($Errors) && count($Errors) == 0 ) {
-		foreach ($Domain_List as $Key => $Domain) {
-			$raw_chain = get_raw_chain(trim($Domain));
-			if (!$raw_chain) {
-				$Errors[] = "Domain has invalid or no certificate: " . htmlspecialchars($Domain) . ".";
-			} else {
-				foreach ($raw_chain['chain'] as $raw_key => $raw_value) {
-					$cert_expiry = cert_expiry($raw_value);
-					$cert_subject = cert_subject($raw_value);
-					if ($cert_expiry['cert_expired']) {
-						$Errors[] = "Domain has expired certificate in chain: " . htmlspecialchars($Domain) . ". Cert Subject: " . htmlspecialchars($cert_subject) . ".";
-					}
-				}
-			}
-		}
+	// TODO Handle Errors better
+	if ( count($Errors) >= 1 ) {
+		return $Errors;
 	}
 
-	if (is_array($Errors) && count($Errors) >= 1) {
-		$result = array();
-		foreach ($Errors as $Key => $Domain) {
-			$result['errors'][] = $Domain;
-		}
-		return $result;
-	} else {
-		$result = array();
-		foreach ($Domain_List as $Key => $Domain) {
-			$result['domains'][] = $Domain;
-		}
-		return $result;
-	}
 }
