@@ -29,7 +29,7 @@ $Domain_List = array(
 
 foreach ( $Domain_List as $Domain => $ExpectedResult ) {
 	echo $Domain.PHP_EOL;
-	$Result[$Domain] = Certificates_Domain_Validate($Domain);
+	$Result[$Domain] = Certificate_Domain_Validate($Domain);
 	echo 'Result'.PHP_EOL;
 	var_dump($Result[$Domain]);
 	$Result[$Domain] = ( $Result[$Domain] == $ExpectedResult );

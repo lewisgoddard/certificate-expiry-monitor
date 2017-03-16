@@ -1,6 +1,6 @@
 <?php
 
-function Certificates_Domain_Validate($Domain) {
+function Certificate_Domain_Validate($Domain) {
 
 	if (
 		!preg_match("/^([a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*$/i", $Domain) ||

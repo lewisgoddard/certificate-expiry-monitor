@@ -1,6 +1,6 @@
 <?php
 
-function Certificates_Domain_Add($Connection, $Username, $Domain, $ValidationKey) {
+function Certificate_Domain_Add($Connection, $Username, $Domain, $ValidationKey) {
 
 	global $Time;
 

@@ -1,14 +1,22 @@
 <?php
 
 require_once __DIR__.'/../../_puff/sitewide.php';
-$Page['Type']  = 'Test';
+$Page['Type']  = 'Cron';
 
-$Domain = 'ashrise.com';
+$Domain_List = mysqli_fetch_once(
+	$Sitewide['Database']['Connection'],
+	'SELECT * FROM `Domains` ORDER BY `Checked` DESC;'
+);
+var_dump($Domain_List);
+
+$Username = $Domain_List['Username'];
+$Domain = $Domain_List['Domain'];
 
 $raw_chain = Certificate_Get_Raw_Chain($Domain);
 
-if (!$raw_chain) {
+if ( !$raw_chain ) {
 	$Errors[] = 'Domain has invalid or no certificate: ' . htmlspecialchars($Domain);
+	// TODO Log Error & Queue EMail
 } else {
 	foreach ($raw_chain['chain'] as $raw_key => $raw_value) {
 
@@ -39,16 +47,24 @@ if (!$raw_chain) {
 
 		echo 'Valid From'.PHP_EOL;
 		$cert_valid_from = cert_valid_from($cert_parsed);
-		var_dump(date(DATE_ATOM, $cert_valid_from));
+		$cert_valid_from = date(DATE_ATOM, $cert_valid_from);
+		var_dump($cert_valid_from);
 		echo PHP_EOL;
 
 		echo 'Valid To'.PHP_EOL;
 		$cert_valid_to = cert_expiry_date($cert_parsed);
-		var_dump(date(DATE_ATOM, $cert_valid_to));
+		$cert_valid_to = date(DATE_ATOM, $cert_valid_to);
+		var_dump($cert_valid_to);
 		echo PHP_EOL;
 
 		$cert_expiry = cert_expired($raw_value);
 		var_dump($cert_expiry);
+		echo PHP_EOL;
+
+		// Log Certificates under Domain
+		echo 'Update Certificate'.PHP_EOL;
+		$Result = Certificate_Update($Sitewide['Database']['Connection'], $Username, $Domain, $cert_cn, $cert_sig, $cert_serial, $cert_subject, $cert_valid_from, $cert_valid_to);
+		var_dump($Result);
 		echo PHP_EOL.PHP_EOL.PHP_EOL;
 
 	}

@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.	If not, see <http://www.gnu.org/licenses/>.
 
-function Certificates_Domain_Add_List($Connection, $Username, $Domain_List, $ValidationKey) {
+function Certificate_Domain_Add_List($Connection, $Username, $Domain_List, $ValidationKey) {
 
 	global $Time;
 
@@ -27,20 +27,20 @@ function Certificates_Domain_Add_List($Connection, $Username, $Domain_List, $Val
 
 	foreach ($Domain_List as $Key => $Domain) {
 
-		$Domain = Certificates_Domain_Sanitize($Domain);
+		$Domain = Certificate_Domain_Sanitize($Domain);
 
-		if ( !Certificates_Domain_Validate($Domain) ) {
+		if ( !Certificate_Domain_Validate($Domain) ) {
 			$Errors[] = "Invalid domain name: " . htmlspecialchars($Domain) . ".";
 		}
 
 		// TODO Check for Duplicates
 
-		$Resolved = Certificates_Domain_Resolve($Domain);
+		$Resolved = Certificate_Domain_Resolve($Domain);
 		if ( !$Resolved['Success'] ) {
 			$Errors[] = $Resolved['Error'];
 		}
 
-		Certificates_Domain_Add($Connection, $Username, $Domain, $ValidationKey);
+		Certificate_Domain_Add($Connection, $Username, $Domain, $ValidationKey);
 
 	}
 

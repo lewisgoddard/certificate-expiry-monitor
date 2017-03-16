@@ -1,6 +1,6 @@
 <?php
 
-function Certificates_Domain_Resolve($Domain) {
+function Certificate_Domain_Resolve($Domain) {
 
 	$IP_List = dns_get_record($Domain, DNS_A + DNS_AAAA);
 
