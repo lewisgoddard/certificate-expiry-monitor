@@ -15,7 +15,7 @@ function Certificate_Update($Connection, $Username, $Domain, $cert_cn, $cert_sig
 		(`Username`, `Domain`, `Certificate`, `Signature`, `Serial Number`, `Subject`, `Valid From`, `Valid To`)
 	VALUES
 		(\''.$Username.'\', \''.$Domain.'\', \''.$cert_cn.'\', \''.$cert_sig.'\', \''.$cert_serial.'\', \''.$cert_subject.'\', \''.$cert_valid_from.'\', \''.$cert_valid_to.'\');';
-var_dump($Query);
+
 	$Result = mysqli_query(
 		$Connection,
 		$Query
