@@ -18,7 +18,9 @@ if ( !$raw_chain ) {
 	$Errors[] = 'Domain has invalid or no certificate: ' . htmlspecialchars($Domain);
 	// TODO Log Error & Queue EMail
 } else {
+	$Cert_Num = 0;
 	foreach ($raw_chain['chain'] as $raw_key => $raw_value) {
+		$Cert_Num++;
 
 		#echo 'Full Data'.PHP_EOL;
 		$cert_parsed = Certificate_Parse($raw_value);
@@ -63,7 +65,7 @@ if ( !$raw_chain ) {
 
 		// Log Certificates under Domain
 		echo 'Update Certificate'.PHP_EOL;
-		$Result = Certificate_Update($Sitewide['Database']['Connection'], $Username, $Domain, $cert_cn, $cert_sig, $cert_serial, $cert_subject, $cert_valid_from, $cert_valid_to);
+		$Result = Certificate_Update($Sitewide['Database']['Connection'], $Username, $Domain, $Cert_Num, $cert_cn, $cert_sig, $cert_serial, $cert_subject, $cert_valid_from, $cert_valid_to);
 		var_dump($Result);
 		echo PHP_EOL.PHP_EOL.PHP_EOL;
 
