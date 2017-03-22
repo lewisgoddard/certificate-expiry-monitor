@@ -13,6 +13,8 @@
 ?>
 </head>
 <body class="page-<?php echo $Sitewide['Request']['AutoLink']; ?>">
+	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
 <?php
 	puff_hook('header');
 	puff_hook('navigation');
