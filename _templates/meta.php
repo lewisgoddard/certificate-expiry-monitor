@@ -27,11 +27,18 @@
 ?>
 <!-- iPinning -->
 <meta name="apple-mobile-web-app-title" content="<?php echo $Sitewide['Settings']['Site Title']; ?>">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" href="/assets/images/ios-desktop.png">
 <!-- Android Pinning -->
 <link rel="manifest"                    href="/assets/manifest.json">
+<meta name="mobile-web-app-capable"     content="yes">
+<link rel="icon" sizes="192x192"        href="/assets/images/android-desktop.png">
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage"    content="/assets/images/touch/ms-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor"    content="#3372df">
 <!-- Favicon -->
-<link rel="shortcut icon"               href="/assets/icons/favicon.ico">
-<link rel="apple-touch-icon"            href="/assets/icons/apple-touch-icon.png">
+<link rel="shortcut icon"               href="<?php echo $Sitewide['Page']['Favicon']; ?>">
 <link rel="icon" type="image/png"       href="/assets/icons/favicon.png" sizes="256x256">
 <!-- Authorship -->
 <link rel="author"                      href="<?php echo $Page['Google+ Author']; ?>" title="<?php echo $Page['Author Name']; ?>"/>

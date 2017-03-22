@@ -12,7 +12,7 @@ $Sitewide['Settings']['Alternative Site Title']         = '';
 // Check it works before enabling it.
 $Sitewide['Settings']['Strip PHP from URLs']            = true;
 // Stop the loading of asset from external domains.
-$Sitewide['Settings']['Content Security Policy Header'] = true;
+$Sitewide['Settings']['Content Security Policy Header'] = false;
 // Honor Do Not Track Headers
 $Sitewide['Settings']['Honor DNT Headers']              = true;
 // Change to your tracking id like 'UA-1234567-89' for tracking.
@@ -42,8 +42,14 @@ $Sitewide['Page']['Author Name']    = 'John Smith';
 $Sitewide['Page']['Google+ Author'] = $Sitewide['Social']['Google+'];
 $Sitewide['Page']['Twitter Author'] = $Sitewide['Social']['Twitter'];
 $Sitewide['Page']['Twitter Site']   = $Sitewide['Social']['Twitter'];
-$Sitewide['Page']['CSS'][]          = 'https://cdn.jsdelivr.net/g/normalize,colors.css';
-$Sitewide['Page']['JQ']             = 'https://cdn.jsdelivr.net/g/jquery';
+$Sitewide['Page']['CSS'][]          = 'https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en';
+$Sitewide['Page']['CSS'][]          = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+$Sitewide['Page']['CSS'][]          = 'https://cdn.jsdelivr.net/g/normalize';
+$Sitewide['Page']['CSS'][]          = 'https://code.getmdl.io/1.3.0/material.blue-red.min.css';
+$Sitewide['Page']['CSS'][]          = '/assets/css/material.css';
+$Sitewide['Page']['JS'][]           = 'https://code.getmdl.io/1.3.0/material.min.js';
+//$Sitewide['Page']['JQ']             = 'https://cdn.jsdelivr.net/g/jquery';
+$Sitewide['Page']['Favicon']        = '/assets/images/favicon.png';
 
 // Version
 $Sitewide['Version']['Core'] = '0.4';
