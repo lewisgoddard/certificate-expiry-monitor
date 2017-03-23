@@ -1,7 +1,7 @@
 <?php
 	require_once __DIR__.'/_puff/sitewide.php';
 	$Page['Type']           = 'Page';
-	$Page['Title']          = 'Mercury';
+	$Page['Title']          = 'Dashboard';
 	$Page['Description']    = 'A certificate and uptime monitoring service.';
 	$Page['Tagline']        = '';
 	$Page['Image']          = $Sitewide['Assets']['External']['Image'].'image.png';
@@ -17,23 +17,33 @@
 					<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 						<div class="mdl-cell mdl-cell--12-col mdl-cell--6-col-desktop">
 							<div id="top_uptime">
-								<h2 class="mdl-color-text--grey-400" style="font-family:'Roboto';font-size:2rem;margin:0 0 1rem;">24 hr Uptime</h2>
 								<p style="font-family:'Roboto';font-size:1rem;line-height:2em;">
-									<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-500 material-icons" role="presentation">check_circle</i> 6 Up</a>&emsp;
-									<a class="mdl-navigation__link" href=""><i class="mdl-color-text--red-500 material-icons" role="presentation">report</i> 0 Down</a>
+									<span class="mdl-color-text--grey-600" style="font-family:'Roboto';font-size:1.4rem;margin:0 0 1rem;">100% Uptime <span class="mdl-color-text--grey-400">in the last 24 hours</span>
+									<span style="float:right;">
+										<a class="mdl-navigation__link" href=""><i class="mdl-color-text--green-500 material-icons" role="presentation">check_circle</i> 8 Up</a>&emsp;
+										<a class="mdl-navigation__link" href=""><i class="mdl-color-text--grey-500 material-icons" role="presentation">report</i> 0 Down</a>
+									</span>
 								</p>
-								<div id="p1" class="mdl-progress mdl-js-progress"></div>
+								<div class="clear" style="clear:both"></div>
+								<div id="p1" class="mdl-progress mdl-js-progress" style="width:100%;"></div>
 								<script>
 									document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
 										this.MaterialProgress.setProgress(100);
 									});
 								</script>
 							</div>
-							<div class="mdl-tooltip" data-mdl-for="top_uptime">All OK</div>
 						</div>
 						<div class="mdl-cell mdl-cell--12-col mdl-cell--6-col-desktop">
 							<div id="top_certificates">
-								<div style="font-family:'Roboto';font-size:2rem;line-height:1.6em;color:#888;text-align:center;">Certificates</div>
+								<p style="font-family:'Roboto';font-size:1rem;line-height:2em;">
+									<span class="mdl-color-text--grey-600" style="font-family:'Roboto';font-size:1.4rem;margin:0 0 1rem;">Certificates <span class="mdl-color-text--grey-400"></span>
+									<span style="float:right;">
+										<a class="mdl-navigation__link" href=""><i class="mdl-color-text--green-500 material-icons" role="presentation">check_circle</i> 6 Valid</a>&emsp;
+										<a class="mdl-navigation__link" href=""><i class="mdl-color-text--orange-500 material-icons" role="presentation">warning</i> 1 Warning</a>&emsp;
+										<a class="mdl-navigation__link" href=""><i class="mdl-color-text--red-500 material-icons" role="presentation">report</i> 1 Invalid</a>
+									</span>
+								</p>
+								<div class="clear" style="clear:both"></div>
 								<div id="p2" class="mdl-progress mdl-js-progress"></div>
 								<script>
 									document.querySelector('#p2').addEventListener('mdl-componentupgraded', function() {
@@ -41,15 +51,7 @@
 									});
 								</script>
 							</div>
-							<div class="mdl-tooltip" data-mdl-for="top_certificates">3 OK &emsp;&mdash;&emsp; 1 Warning</div>
 						</div>
-					</div>
-
-					<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-						<span class="mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop" style="font-family:'Roboto';font-size:2rem;color:#888;text-align:center;">24hr Uptime</span>
-						<span class="mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop" style="font-family:'Roboto';font-size:2rem;color:#888;text-align:center;">24hr Uptime</span>
-						<span class="mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop" style="font-family:'Roboto';font-size:2rem;color:#888;text-align:center;">24hr Uptime</span>
-						<span class="mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop" style="font-family:'Roboto';font-size:2rem;color:#888;text-align:center;">Certs Expiring</span>
 					</div>
 					<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 						<svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
@@ -131,7 +133,6 @@
 					</div>
 				</div>
 			</main>
-		</div>
 			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
 				<defs>
 					<mask id="piemask" maskContentUnits="objectBoundingBox">

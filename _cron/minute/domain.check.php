@@ -72,6 +72,17 @@ if ( !$raw_chain ) {
 	}
 }
 
+// TODO Check Status
+
+echo 'Update Domain Checked Time'.PHP_EOL;
+$Time_ATOM = date(DATE_ATOM, $Time);
+$Domain_Checked = 'UPDATE `Domains` SET `Checked`=\''.$Time_ATOM.'\' WHERE `Domain`=\''.$Domain.'\';';
+$Domain_Checked = mysqli_query(
+	$Sitewide['Database']['Connection'],
+	$Domain_Checked
+);
+var_dump($Domain_Checked);
+
 if ( !empty($Errors) ) {
 	var_dump($Errors);
 }

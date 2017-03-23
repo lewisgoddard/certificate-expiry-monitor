@@ -26,7 +26,7 @@
 		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">network_check</i>Performance</a>
 		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">wifi</i>Uptime</a>
 		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">security</i>Certificates</a>
-		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">storage</i>Domains</a>
+		<a class="mdl-navigation__link" href="domains"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">storage</i>Domains</a>
 		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">chat</i>Messages</a>
 		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">autorenew</i>Refresh</a>
 		<div class="mdl-layout-spacer"></div>
